@@ -1,2 +1,2 @@
-# agents
-A repository containing practice examples for AI Agents
+# AI Projects
+A repository containing practice examples for AI
