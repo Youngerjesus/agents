@@ -1,0 +1,170 @@
+## SDG Process Overview
+
+### Overview of the SDG Process
+- **Start with a `LLM NIM`**: The process begins by using a `LLM NIM` to generate raw data.
+- **Provide Prompts**: A series of prompts are provided to the `LLM NIM` to generate a large volume of raw data.
+- **Ensure Feedback Loop**: A constant feedback loop is maintained to ensure the quality of the generated data.
+- **Quality Assurance**: Multiple `LLMs`, reward models, and agents are used to verify that the generated data is of high quality.
+- **Filtering**: Extensive filtering is applied to ensure that only high-quality data is used for model fine-tuning, pre-training, and other use cases.
+- **Iterative Process**: The process is repeated in iterations (steps one, two, and three) until the target dataset size or the desired number of tokens is achieved.
+
+### NVIDIA's Offerings for SDG
+- **Pre-built Pipelines**: NVIDIA provides starter pre-built pipelines that were used to train their state-of-the-art `Nemotron 4340B` models.
+- **Versatile Data Generation**: These pipelines can generate various types of data, including:
+  - Question-answer pairs
+  - Map prompts
+  - Writing prompts
+  - Code prompts
+  - Dialogues
+- **Customizable Framework**: The framework allows users to:
+  - Use their own models to generate data.
+  - Use their own models to judge the quality of the data.
+  - Scale and generate large volumes of synthetic data.
+  - Apply NVIDIA's filtering techniques to extract only high-quality data.
+
+### Feedback Loop Management
+- **NVIDIA's Role**: NVIDIA handles the feedback loop in the synthetic data generation process.
+- **Components of the Feedback Loop**:
+  - **LLM NIM**: Generates the initial raw data.
+  - **Reward Model**: Acts as a NIM to evaluate the quality of the generated data.
+  - **LLM as Judge**: Functions as a judge to further assess data quality.
+  - **Filters**: Multiple filters are applied to refine the data.
+- **Pipeline Orchestration**: Users can orchestrate their own pipelines by stitching together these building blocks using the `curator` tool.
+
+### Key Points
+- **High-Quality Output**: The process ensures that only high-quality data is used for model fine-tuning and pre-training.
+- **Scalability**: The framework is designed to scale, allowing for the generation of large volumes of synthetic data.
+- **Customization**: Users can customize the process by using their own models and defining their own steps within the pipeline.
+
+### Example Use Case
+- **Question**: Does NVIDIA handle the feedback loop? If so, how does it work?
+- **Answer**: Yes, NVIDIA manages the feedback loop by using a combination of `LLM NIM`, reward models, LLM judge functions, and multiple filters. These components are orchestrated to ensure the generation of high-quality synthetic data.
+
+## Synthetic Data Generation Offerings
+
+### Overview
+- **Synthetic Data Generation (SDG)** involves starting from a `LLM NIM`, providing prompts, and generating raw data.
+- **Feedback Loop**: Ensures high-quality data generation through continuous iteration.
+  - **Steps**:
+    1. Generate data using `LLM NIM`.
+    2. Use `reward models`, `agents`, and `LLMs` to judge data quality.
+    3. Apply filtering to ensure only high-quality data is used for fine-tuning, pre-training, or other use cases.
+  - Repeat the loop until the target dataset size or token count is achieved.
+
+### Offerings
+- **Pre-built Pipelines**: 
+  - **Starter pipelines** provided for synthetic data generation.
+  - These pipelines were used to train **Nemotron 4340B models**, which are state-of-the-art.
+- **Data Types**:
+  - Generate various types of data, including:
+    - **Question-Answer pairs**
+    - **Writing prompts**
+    - **Code prompts**
+    - **Dialogues**
+  - Everything is modular, like building blocks.
+- **Customization**:
+  - Use your own model to generate and judge data.
+  - Compatible with models adhering to the **OpenAI API spec** (LLM standard).
+  - Scale and generate large amounts of synthetic data using the provided framework.
+  - Apply **filtering techniques** to extract only high-quality data.
+
+### Feedback Loop Handling
+- **NVIDIA's Role**:
+  - **LLM NIM**: Generates data.
+  - **Reward Model NIM**: Judges data quality.
+  - **Filters**: Applied to ensure high-quality output.
+- **Pipeline Orchestration**:
+  - Combine building blocks (e.g., `LLM NIM`, `reward model`, filters) to create a custom pipeline.
+  - Use the **Curator** to define steps and run the SDG pipeline independently.
+
+### Key Points
+- **High-Quality Data**: Ensured through iterative feedback loops and filtering.
+- **Scalability**: Framework allows for large-scale synthetic data generation.
+- **Flexibility**: Customizable pipelines using your own models and NVIDIA's tools.
+
+## Custom Model Integration
+
+### Overview
+- **Users can integrate their own models** for data generation and judgment.
+- **Models must adhere to the OpenAI API specification**.
+- **Utilize NVIDIA's framework** for scaling and filtering high-quality synthetic data.
+
+### Process Flow
+1. **Start with a LLM NIM**:
+   - Provide a set of prompts to the LLM NIM.
+   - Generate a large amount of raw data.
+
+2. **Feedback Loop**:
+   - **Ensure a constant feedback loop** to maintain data quality.
+   - Use **LLMs, reward models, and agents** to judge the quality of generated data.
+   - Apply **filtering techniques** to ensure only high-quality data is used for fine-tuning, pre-training, and other use cases.
+
+3. **Iterative Process**:
+   - Repeat the process in multiple iterations until the target dataset size or desired tokens are achieved.
+
+### NVIDIA's Offerings
+- **Pre-built pipelines**:
+  - NVIDIA provides starter pipelines used to train their **Nemotron 4340B models**.
+  - These pipelines are research-backed and integrated into the product.
+  - Users can generate various types of data, including:
+    - **Question-answer pairs**
+    - **Map prompts**
+    - **Writing prompts**
+    - **Code prompts**
+    - **Dialogues**
+
+- **Custom Model Integration**:
+  - Users can **bring their own models** for data generation and judgment.
+  - As long as the model adheres to the **OpenAI API spec**, it can be integrated into NVIDIA's framework.
+  - The framework allows for **scaling and generating large amounts of synthetic data**.
+  - NVIDIA's **filtering techniques** ensure only high-quality data is retained.
+
+### Feedback Loop Handling
+- **Does NVIDIA handle the feedback loop?**
+  - **Yes**, NVIDIA manages the feedback loop as part of their synthetic data generation feature set.
+  - Components involved in the feedback loop:
+    - **LLM NIM** for data generation.
+    - **Reward model NIM** and **LLM judge functions** for data quality assessment.
+    - **Multiple filters** to refine the data.
+
+- **Pipeline Orchestration**:
+  - Users can **orchestrate their pipeline** by stitching together various building blocks (e.g., LLM NIM, reward models, filters).
+  - The **Curator tool** allows users to define these steps out-of-the-box and run the **SDG pipeline** independently.
+
+### Conclusion
+- NVIDIA's framework supports **custom model integration** for synthetic data generation and quality judgment.
+- The process is iterative, with a strong focus on **maintaining high data quality** through feedback loops and filtering.
+- Users can leverage NVIDIA's pre-built pipelines or customize their own using the provided tools and frameworks.
+
+## Feedback Loop Management by NVIDIA
+
+### Overview of the Feedback Loop Process
+- **SDG Diagram**: The process starts with a `LLM NIM` (Large Language Model Neural Inference Module).
+- **Data Generation**: A set of prompts is provided to the `LLM NIM`, generating a large amount of raw data.
+- **Feedback Loop**: Ensures continuous improvement by iterating through the following steps:
+  1. **Data Quality Assurance**: Multiple `LLMs`, reward models, and agents are used to ensure the generated data is of high quality.
+  2. **Filtering**: A series of filters are applied to refine the data.
+  3. **Iteration**: The loop is repeated until the target dataset size or desired tokens are achieved.
+
+### Key Components of the Pipeline
+- **Pre-built Pipelines**: NVIDIA provides starter pipelines used to train their `Nemotron 4340B` models.
+- **Data Generation Capabilities**: The pipelines can generate:
+  - Question-answer pairs
+  - Map prompts
+  - Writing prompts
+  - Code prompts
+  - Dialogues
+- **Customization**: Users can integrate their own models for data generation and quality judgment, as long as they adhere to the `OpenAI API spec`.
+
+### Feedback Loop Management
+- **NVIDIA's Role**: NVIDIA manages the feedback loop by providing:
+  - A `LLM NIM` for data generation.
+  - A reward model (`NIM`) for evaluating data quality.
+  - Multiple filters to refine the data.
+- **Pipeline Orchestration**: Users can stitch together these building blocks to create their own synthetic data generation (`SDG`) pipeline.
+- **Ease of Use**: The `Curator` tool allows users to define steps and run the `SDG` pipeline seamlessly.
+
+### Summary
+- **Objective**: The feedback loop ensures high-quality data for fine-tuning, pre-training, and other use cases.
+- **Scalability**: NVIDIA's framework enables users to scale synthetic data generation efficiently.
+- **Flexibility**: Users can leverage NVIDIA's tools while integrating their own models and filters.
