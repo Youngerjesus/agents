@@ -15,6 +15,7 @@
     - `spec.md`: Business requirements & Properties (EARS).
     - `plan.md`: Architecture, data separation, pseudo-code.
     - `tasks.md`: Granular milestones for agents.
+    - `checklists`: checklists for each spec. for verification.
   - `.claude/tasks/`: Persistent task tracking (`tasks.json`).
   - `src/`: Implementation logic.
   - `tests/`: TDD and Property-based tests.
