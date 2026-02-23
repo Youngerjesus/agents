@@ -1,0 +1,33 @@
+description = "Completes development cycle by committing changes, updating progress and history docs, merging to main, and ending the chat session."
+
+prompt = """
+# Task: Finish Cycle and Finalize Development
+
+The development cycle is now complete. Please execute the following finalized steps carefully:
+
+## 1. Git Commit
+- Review the codebase changes using `git status` and `git diff`.
+- Stage all modified and new files (`git add .`).
+- Create a detailed git commit using `git commit -m "..."`. The commit message MUST be highly descriptive, elaborating on what was changed, why it was changed, and how the changes were implemented. Avoid one-line sparse commit messages.
+
+## 2. Update Progress Log
+- Document the work you just completed in `work_queue/progress.md`.
+- Detail the tasks that were accomplished.
+- **CRITICAL FORMAT REQUIREMENT**: The `progress.md` file MUST maintain a maximum of 10 items in its history. If adding a new record exceeds 10 items, remove the oldest items (at the bottom or top depending on your ordering convention) to keep the count strictly at 10.
+
+## 3. Update History Archive
+- Summarize the entirety of this completed project iteration into a single, concise sentence.
+- Append this one-line summary linearly to the bottom of `docs/history_archives/history.md`. This file is used to track the macroscopic evolution of the project.
+
+## 4. Merge to main branch (Final Step)
+- Identify your current working branch.
+- Checkout the `main` branch (`git checkout main`).
+- Merge the working branch into the `main` branch (`git merge <your-branch>`).
+- (Optional) Push the changes to the remote repository.
+
+## 5. End Chat Session
+- Analyze the work done in this chat session. If you identify any repetitive tasks, potential areas for AI Agent automation, or ways to improve the AI Agent development workflow, provide a brief suggestion to the user.
+- After all steps are fully completed and verified to be correct, please output a final message notifying the user that the development procedure is finished.
+- Mention to the user: "If you want to save the current context for a future session, please run the `/export-context` command."
+- Finally, explicitly instruct the user to "close the chat session" as no further actions are required.
+"""

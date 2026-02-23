@@ -1,0 +1,48 @@
+description = "Create a comprehensive technical design document including architecture, component interactions, and detailed logic flows."
+
+prompt = """
+## User Input
+
+{{args}}
+
+## Outline
+
+You are a **Senior System Architect**. Your goal is to translate a functional specification and rough plan into a concrete **Technical Design Document (TDD)**. Focus on the high-level system interactions and detailed logic flow that are out of scope for the execution-focused specific plan.
+
+1.  **Context Analysis**:
+    - Identify the target feature or system scope from the user input or the currently open file.
+    - Read the existing Spec (`spec.md`) and Plan (`plan.md`) if available to understand the requirements and data contracts.
+    - If no specific files are found, assume the scope is the user input itself.
+
+2.  **Design Execution**:
+    Create or update a design document (default: `docs/design/[feature-name]-design.md` or simply `docs/designs/[feature-name].md`) with the following sections. **Focus on *HOW* it works, not *WHAT* it does.**
+
+    ### A. System Architecture (High-Level)
+    - **Diagram**: Use Mermaid `graph TD` or `C4Context` to show how this feature fits into the existing system.
+    - **Components**: List modified or new components (Frontend, Backend, DB, External APIs).
+    - **Dependencies**: Explicitly list libraries, services, or internal modules required.
+
+    ### B. Component Interaction (Flow)
+    - **Sequence Diagrams**: Use Mermaid `sequenceDiagram` to visualize the flow of data and control between components.
+        - Example: `User clicks button` -> `Frontend calls API` -> `Backend validates` -> `Backend queries DB`.
+    - **Data Flow**: Describe how data moves through the layers (Interface -> Application -> Domain -> Infrastructure).
+
+    ### C. Detailed Design (Low-Level)
+    - **Class/Interface Definitions**: Define key classes, interfaces, and public methods.
+    - **Algorithm Logic**: Use pseudo-code or flowcharts for complex business logic.
+    - **State Management**: If applicable (e.g., frontend state, backend state machines).
+
+    ### D. Edges & Errors
+    - **Error Handling**: How are failures handled specific to this design?
+    - **Edge Cases**: List specific scenarios (race conditions, empty states, concurrent access).
+
+3.  **Review Criteria**:
+    - Ensure strict separation of concerns (Layered Architecture).
+    - Design for testability (can we mock dependencies?).
+    - Security implications (authz/authn checks).
+
+4.  **Output**:
+    - Confirm the design file path.
+    - Write the content to the design file.
+    - Report completion with a brief summary of the design decisions made.
+"""

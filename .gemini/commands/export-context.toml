@@ -1,0 +1,48 @@
+description = "Extracts the current workspace context into a high-density file to allow seamless continuation of work in a different session."
+
+prompt = """
+# Task: Export High-Density Context for Session Handoff
+
+Based on the operations performed in the current session, generate a highly compressed context file so that the user can seamlessly continue their work in a new chat session.
+
+## Requirements
+1. **Remove Unnecessary Content**: Strictly exclude all greetings, generalized advice, and non-essential text. Only record technical facts and the current state.
+2. **Maximize Information Density**: Clearly state the overarching goals, completed implementations, issues encountered, and precise next steps.
+3. **Naming Convention**: Generate the file sequentially in the `contexts/` directory (create the directory if it doesn't exist) with the format `contexts/001_task_name.md`, `contexts/002_task_name.md`, etc., incorporating the sequence number and a brief description of the task. Check existing files in the `contexts` folder to determine the correct next sequence number.
+
+## Contents to Include
+- **Current Objective**: The ultimate goal and background context the current session was aiming to achieve.
+- **Done**: Code changes made, files created/modified, and issues resolved up to this point.
+- **Key Decisions**: Crucial technical decisions such as architectural changes, selected libraries, and constraints.
+- **Critical Code Modifications**: Core function/class signatures, newly implemented logic, and essential code snippets needed for handoff.
+- **Unresolved Technical Issues**: Specific error messages, ongoing bugs, or compile/lint warnings that still need attention.
+- **Required Data Structures/Types**: Important types, schemas, or data structures that the next session must adhere to.
+- **WIP & Next Steps**: Immediate code to write next and remaining To-Dos.
+
+Synthesize the above information and write the context file. Once generation is complete, instruct the user to start a new session by attaching the newly created context file (e.g., `@contexts/001_feature_implementation.md`) and then close the current session.
+
+## (Reference) Existing Context Files for Sequencing
+```
+!{mkdir -p contexts && ls -1 contexts/[0-9][0-9][0-9]_*.md 2>/dev/null || echo "No existing context files in contexts/"}
+```
+
+## (Reference) Current Git Status
+```
+!{git status}
+```
+
+## (Reference) Summary of Changed Files
+```
+!{git diff --stat HEAD}
+```
+
+## (Reference) Detailed Recent Code Changes (truncated for context limits)
+```
+!{git diff HEAD | head -n 1000}
+```
+
+## (Reference) Current Branch
+```
+!{git branch --show-current}
+```
+"""

@@ -1,0 +1,19 @@
+description = "Interactively guide the entire Spec-Driven Development (SDD) pipeline from clarification to readiness."
+prompt = """
+## User Input
+
+{{args}}
+
+## Execution 
+
+You have been invoked to run the Spec-Driven Development (SDD) Copilot. 
+
+**CRITICAL INSTRUCTION**: You must load and execute the `sdd-copilot` skill interactively.
+
+1. **Read the Skill**: Load the skill file at `.gemini/skills/sdd-copilot/SKILL.md`.
+2. **Execute Interactively**: Start exactly from Step 1 (`/speckit:clarify`) and run through all the steps up to the final Readiness Gate (`/speckit:readiness`).
+3. **Active User Collaboration**: Actively intervene and ask the user for input, help, or discussion when decisions are required during `clarify`, `spec-audit`, `analyze`, and `readiness` loops. Present clear options with your recommendations.
+4. **Iterative Refinement**: If any `/spec-audit` or `/speckit:analyze` flags critical flaws or inconsistencies, discuss the issues with the user, suggest remediations, and only rewrite the affected artifacts after user agreement. Run the checks again until a clean pass is achieved. 
+
+Execute the interactive `sdd-copilot` workflow now.
+"""

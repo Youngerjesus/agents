@@ -1,0 +1,30 @@
+{
+  "experimental": {
+    "plan": true,
+    "enableAgents": true
+  },
+  "tools": {
+    "core": [
+      "ls",
+      "cat",
+      "source",
+      "pwd",
+      "grep",
+      "echo",
+      "git",
+      "cd",
+      "npm",
+      "curl",
+      "sh",
+      "mv",
+      "mkdir",
+      "npm",
+      "npx",
+      "find",
+      "sed",
+      "pytest",
+      "mkdir",
+      "export"
+    ]
+  }
+}

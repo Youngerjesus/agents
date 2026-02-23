@@ -1,0 +1,21 @@
+description = "Iteratively verify implementation against specifications (spec.md, tasks.md, plan.md, design.md) using the verification_agent, and seamlessly hand off to code review."
+
+prompt = """
+## User Input
+
+{{args}}
+
+## Spec Verification Execution
+
+Please invoke the `spec-verify` skill. Your task is to loop over the verification process to strictly guarantee that all development is complete as per the spec.
+
+1. Adopt the `verification_agent` persona located at `.gemini/agents/verification_agent.md`.
+2. Load all available specification documents relevant to the current feature (`spec.md`, `tasks.md`, `plan.md`, `design.md`).
+3. Follow the `.gemini/skills/spec-verify/SKILL.md` instructions: 
+   - Iteratively check if the implementation in the codebase fully matches the core requirements and tasks.
+   - Run the tests.
+   - Automatically write code to fix any gaps in specifications that were not implemented or correctly functional.
+4. Once verified successfully and all tests pass with zero gaps remaining, follow the "Verification Handoff Analysis & Execution" logic in the skill:
+   - If the tasks involve frontend/UI/UX changes, STOP execution and prompt the user to verify locally, waiting for their `/code-review` command.
+   - If the tasks are purely backend/logic/API, automatically invoke the `code-review` skill (via `.gemini/commands/code-review.toml` or `.gemini/skills/code-review/SKILL.md`).
+"""
